@@ -16,17 +16,9 @@ function LandingPage() {
     return () => socket.disconnect();
   })
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-6 bg-gray-900">
-      <h1 className="text-5xl text-red-500 font-bold"> Super Tic Tac Shiv</h1>
+    <div className="flex flex-col items-center justify-center h-screen gap-6">
+      <h1 className="text-5xl text-red-600 font-bold"> Super Tic Tac Shiv</h1>
 
-      <button className="bg-blue-600 px-6 py-3 rounded-log text-log hover:bg-blue-700 transition"
-        onClick={() => {
-          const newCode = Math.random().toString(36).substring(2, 8);
-          navigate(`/game/${newCode}`); // Navigate to the game room with the new code
-        }}
-      >
-        Create Game
-      </button>
 
       <div className="flex items-center gap-2">
         <input
@@ -36,7 +28,7 @@ function LandingPage() {
           placeholder="Enter room code"
           className="px-4 py-2 border border-gray-300 rounded-lg"
         />
-        <button className="bg-green-600 px-6 py-3 rounded-log text-log hover:bg-green-700 transition"
+        <button className="bg-green-600 px-6 py-3 rounded-lg text-lg hover:bg-green-700 transition"
           onClick={() => {
             if (roomCode.trim() !== "") {
               // Navigate to the game room with the entered code
@@ -46,6 +38,15 @@ function LandingPage() {
         >
           Join Game
         </button>
+
+              <button className="bg-blue-600 px-6 py-3 rounded-lg text-lg hover:bg-blue-700 transition"
+        onClick={() => {
+          const newCode = Math.random().toString(36).substring(2, 8);
+          navigate(`/game/${newCode}`); // Navigate to the game room with the new code
+        }}
+      >
+        Create Game
+      </button>
         </div>
     </div>
   );
